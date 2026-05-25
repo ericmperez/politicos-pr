@@ -44,9 +44,20 @@ export default async function PartidoPage({
           {partido.abreviatura}
         </div>
         <h1 className="text-3xl font-bold mb-2">{partido.nombre}</h1>
-        <p className="text-[var(--muted-foreground)] max-w-2xl">
+        <p className="text-[var(--muted-foreground)] max-w-2xl mb-3">
           {partido.descripcion}
         </p>
+        {partido.plataforma_url && (
+          <a
+            href={partido.plataforma_url}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold hover:underline"
+            style={{ color: partido.color }}
+          >
+            📄 {partido.plataforma_nombre ?? "Plataforma oficial"} →
+          </a>
+        )}
       </header>
       {figuras.length === 0 ? (
         <div className="card p-8 text-center text-sm text-[var(--muted-foreground)]">
