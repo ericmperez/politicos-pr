@@ -231,4 +231,6 @@ export interface Partido {
   color: string;
   color_fondo: string;
   descripcion: string;
+  plataforma_nombre?: string;
+  plataforma_url?: string;
 }
