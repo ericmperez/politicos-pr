@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --foreground: #0c0a09;
+  --muted: #f5f5f4;
+  --muted-foreground: #57534e;
+  --border: #e7e5e4;
+  --accent: #1e293b;
+  --pnp: #1d4ed8;
+  --ppd: #dc2626;
+  --pip: #15803d;
+  --mvc: #7c3aed;
+  --pd: #0f766e;
+  --alianza: #9333ea;
+  --ind: #525252;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c0a09;
+    --foreground: #fafaf9;
+    --muted: #1c1917;
+    --muted-foreground: #a8a29e;
+    --border: #292524;
+    --accent: #e7e5e4;
   }
 }
 
-body {
+html, body { background: var(--background); color: var(--foreground); }
+body { font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--accent); color: var(--background);
+  padding: 0.625rem 1rem; border-radius: 0.5rem;
+  font-weight: 600; font-size: 0.875rem;
+  transition: opacity 150ms;
+}
+.btn-primary:hover { opacity: 0.85; }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--muted); color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 0.625rem 1rem; border-radius: 0.5rem;
+  font-weight: 600; font-size: 0.875rem;
+  transition: background 150ms;
+}
+.btn-secondary:hover { background: var(--border); }
+
+.card {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(0,0,0,0.12);
+  border-color: var(--muted-foreground);
+}
+
+.chip {
+  display: inline-flex; align-items: center;
+  padding: 0.25rem 0.625rem; border-radius: 999px;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.eje-bar {
+  height: 6px; border-radius: 3px;
+  background: var(--muted); overflow: hidden;
+}
+.eje-bar-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, #1e293b, #475569);
+  transition: width 400ms ease;
 }
